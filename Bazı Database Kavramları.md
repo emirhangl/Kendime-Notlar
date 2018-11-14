@@ -156,7 +156,7 @@
     .NET 3.5 öncesi, developerlar, uygulama verilerini ilgili DB'ye kaydetmek veya getirmek için sıklıkla ADO.NET kodu yazarlardı.
     Bunun için database connection açılırdı, veriyi çekmek veya göndermek için DataSet oluşturulurdu. Ayrıca bu veriler DataSet'ten .NET object'lere ve tam tersi olmak üzere convert edilirdi. Bu hantal ve hataya eğilimli bir yöntemdi. Bunun üzerine, bütün bu DB bağlantılı aktiviteleri otomatize etmek için Microsoft cc. Entity Framework'u yarattı.
     
-    _Entity Framework Microsft tarafından desteklenen açık kaynaklı bir [ORM](#orm(object-relational-mapping)-nedir) framework'üdür._
+    _Entity Framework Microsft tarafından desteklenen açık kaynaklı bir [ORM](#ormobject-relational-mapping-nedir) framework'üdür._
     ```csharp
       namespace Geocat.Data
       {
