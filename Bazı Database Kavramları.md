@@ -1,4 +1,4 @@
-* **ADO.NET (ActiveX Data Object) nedir ?**
+* ## ADO.NET (ActiveX Data Object) nedir ?
 
   Microsoft tarafından sunulan, uygulamalarımız için veritabanı işlemlerini(CRUD) yapmamızı sağlayan bir framework'tür.
   Sadece SQL Server için değil ayrıca *Access* ve *Oracle* için de kullanabiliriz.
@@ -49,7 +49,7 @@
             Console.ReadLine();
         }
     ```
-* **DAO(Data Access Object) nedir ?**
+* ## DAO(Data Access Object) nedir ?
 
   Data Acces Object temel olarak, bizim database'e erişmemizi sağlayan bir object veya interface'dir.
   Örnekle: Employee'mizi temsil edecek bir entity'miz olduğunu düşünelim;
@@ -89,7 +89,7 @@
     }
   ```
   Bir sonraki adım bu interface'i implement edip içini doldurmak olacaktır.
-* **DAL(Data Access Layer nedir ?**
+* ## DAL(Data Access Layer) nedir ?
   
   Database connection'ı oluşturmak SELECT, INSERT, UPDATE ve DELETE komutları ve benzeri komutlar DAL'ın içinde yer almalı.
   Data Access Layer tipik olarak DB'ye erişmek için kullanılan methodları içerir.
@@ -100,7 +100,7 @@
     GetProductsByCategoryID(categoryID), //Bir kategoriye ait tüm ürünleri döner.
     GetProductByProductID(productID), // Specific bir ürün hakkında bilgi döner.
   ```
-* **DBAL nedir ?**
+* ## DBAL(DB Abstraction Layer) nedir ?
 
   My understanding is that a data access layer does not actually abstract the database, but rather makes database operations
   and query building easier.
@@ -117,11 +117,107 @@
   And all the objects might be fully populated with all the fields, possibly joined with any parent or child objects 
   if you set it that way.
   [link](https://stackoverflow.com/questions/2838661/what-is-the-difference-between-database-abstraction-layer-data-access-layer)
-* **DBMS-(JDBC) nedir ?**
+* ## DBMS(Database Management System)-(JDBC(Java Database Connectivity) nedir ?
+
+  *DBMS* database oluşturma ve yönetme yazılım sistemine denir. Bu sistem bilgisayar bilimiyle uğraşanlar insanalara
+   sistematik   ve güvenli bir şekilde veri alma, güncelleme ve yönetme olanağı sağlayan sistemdir.
+   
+   *JDBC* özellikle bir ilişkisel veritabanında saklanan veriler olmak üzere her türlü tablo verilerine erişebilen bir Java API'sıdır. *JDBC*, Windows, Mac OS ve çeşitli UNIX sürümleri gibi çeşitli platformlarda Java ile çalışır. _(Write once, run everywhere)_
+* ## ORM(Object Relational Mapping) nedir
+  
+  ORM object oriented paradigmasını kullanarak, database'i query'lememizi ve manipüle etmemizi sağlayan tekniktir.
+  Bir ORM kütüphanesi senin, programlama dil tercihinde yazılmış, db'yi manipüle edecek kodları encapsule eden kütüphanedir.
+  Böylece, bundan sonra SQL ile uğraşmazsın; direkt object ile etkileşime geçersin.
+  Aşağıdaki i. örnekte 'linux' yazarının kitaplarını getirmek için normalde aşağıdaki kullanılırken, ORM kütüphanesi kullanılırsa kod ii. örnekteki gibi gözükür.
+  1. Örnek 
+  ```
+    book_list = new List();
+    sql = "SELECT book FROM library WHERE author = 'Linus'";
+    data = query(sql); // I over simplify ...
+    while (row = data.next())
+    {
+         book = new Book();
+         book.setAuthor(row.get('author');
+         book_list.add(book);
+    }
+  ```
+  2. Örnek 
+  ```
+    book_list = BookTable.query(author="Linus");
+  ```
+  ##### Dillere göre kullanılan kütüphaneler:
+  - Java: Hibernate.
+  - PHP: Propel or Doctrine (I prefer the last one).
+  - Python: the Django ORM or SQLAlchemy (My favorite ORM library ever).
+  - C#: NHibernate or Entity Framework
+  
+* ## Entity Framework nedir ?
+
+    .NET 3.5 öncesi, developerlar, uygulama verilerini ilgili DB'ye kaydetmek veya getirmek için sıklıkla ADO.NET kodu yazarlardı.
+    Bunun için database connection açılırdı, veriyi çekmek veya göndermek için DataSet oluşturulurdu. Ayrıca bu veriler DataSet'ten .NET object'lere ve tam tersi olmak üzere convert edilirdi. Bu hantal ve hataya eğilimli bir yöntemdi. Bunun üzerine, bütün bu DB bağlantılı aktiviteleri otomatize etmek için Microsoft cc. Entity Framework'u yarattı.
+    
+    _Entity Framework Microsft tarafından desteklenen açık kaynaklı bir [ORM](#orm(object-relational-mapping)-nedir) framework'üdür._
+    ```csharp
+      namespace Geocat.Data
+      {
+        public class CityDb
+        {
+            /// <summary>
+            /// veri tabanına yeni bir şehir eklemek için kullanılan fonksiyon
+            /// </summary>
+            /// <param name="_city">
+            /// Veri tabanına eklenmek istenen city objesi
+            /// </param>
+            /// <returns>
+            /// Eklenen city objesi, Id bilgisi ile birlike geri döner
+            /// </returns>
+            public city AddNewCity(city _city)
+            {
+                try
+                {
+                    using (var context = new GeoCatEntities())
+                    {
+                        context.cities.Add(_city);
+                        var numberofAddedObject = context.SaveChanges();
+
+                        return numberofAddedObject > 0 ? _city : null;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
+            public bool DeleteCity(int _id)
+            {
+                try
+                {
+                    using (var context = new GeoCatEntities())
+                    {
+                        var deleteObject = context.cities.FirstOrDefault(c => c.Id == _id);
+
+                        if (deleteObject != null)
+                        {
+                            context.cities.Remove(deleteObject);
+                            int numberOfDeleteObjet = context.SaveChanges();
+
+                            return numberOfDeleteObjet > 0;
+
+                        }
+
+                        return false;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+      }
+    ```
+    
+* ## Entity Relationship Model nedir ?
 
   
-* **ORM nedir ?**
-
-* **Entity Framework nedir ?**
-
-* **Entity Relationship Model nedir ?**
