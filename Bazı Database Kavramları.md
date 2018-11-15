@@ -1,3 +1,15 @@
+# Konu Başlıkları
+
+1. [ActiveX Data Object (ADO.NET) nedir ?](#adonet-activex-data-object-nedir-)
+2. [Data Access Object (DAO) nedir ?](#daodata-access-object-nedir-)
+3. [Data Access Layer (DAL) nedir ?](#daldata-access-layer-nedir-)
+4. [DB Abstraction Layer (DBAL) nedir ?](#dbaldb-abstraction-layer-nedir-)
+5. [Database Management System (DBMS)&(JDBC) nedir ?](#dbmsdatabase-management-system-jdbcjava-database-connectivity-nedir-)
+6. [Object Relational Mapping (ORM) nedir ?](#ormobject-relational-mapping-nedir)
+7. [Entity Framework (EF) nedir ?](#entity-framework-nedir-)
+8. [Entity Relationship Model nedir ?](#entity-relationship-model-nedir-)
+
+
 * ## ADO.NET (ActiveX Data Object) nedir ?
 
   Microsoft tarafından sunulan, uygulamalarımız için veritabanı işlemlerini(CRUD) yapmamızı sağlayan bir framework'tür.
@@ -220,4 +232,11 @@
     
 * ## Entity Relationship Model nedir ?
 
+  ER Diagram olarak da biliniyor. Database'imizin haritasını çıkardığımız modeldir. Bununla DB'mizdeki bütün entity'lerin ilişkilerini, ilişkiler arasındaki cardinality(sayısallıkları)'ı veya özelliklerini belirleriz veya görürüz. Örnek vermek gerekirse:
+  ![ER Model](http://seoclearly.com/wp-content/uploads/2018/08/relationship-diagram-templates-boat-jeremyeaton-co.svg "ER Model")
   
+  **Cardinality'leri anlamamız için görsel:**
+  
+  <p align="center">
+  <img width="460" height="300" src="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/erd-symbols/ERD-Notation.PNG">
+  </p>
