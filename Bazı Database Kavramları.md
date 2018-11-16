@@ -8,6 +8,8 @@
 6. [Object Relational Mapping (ORM) nedir ?](#ormobject-relational-mapping-nedir)
 7. [Entity Framework (EF) nedir ?](#entity-framework-nedir-)
 8. [Entity Relationship Model nedir ?](#entity-relationship-model-nedir-)
+9. [Language Integrated Query (LINQ) nedir ?](#linq-language-integrated-query-nedir-)
+
 
 
 * ## ADO.NET (ActiveX Data Object) nedir ?
@@ -240,3 +242,56 @@
   <p align="center">
   <img width="460" height="300" src="https://d2slcw3kip6qmk.cloudfront.net/marketing/pages/chart/erd-symbols/ERD-Notation.PNG">
   </p>
+
+* ## LINQ (Language Integrated Query) nedir ?
+
+  LINQ query yeteneklerinin direkt olarak C# diline entegre edilmesine denir.
+  Query ifadeleri bilinen query syntax'i ile yazılır. Böylece, filtreleme, sıralama ve gruplama işlemlerini minimum kod ile yapmış oluruz.
+  
+  **Query işlemi 3 temel aksiyondan oluşuyor:**
+  1. Data kaynağını içermek
+    ```csharp
+        // XML için
+        // using System.Xml.Linq;
+        XElement contacts = XElement.Load(@"c:\myContactList.xml");
+    ```
+    ```csharp
+        // DB için
+        Northwnd db = new Northwnd(@"c:\northwnd.mdf");  
+
+        // Query for customers in London.  
+        IQueryable<Customer> custQuery =  
+            from cust in db.Customers  
+            where cust.City == "London"  
+            select cust;
+    ```
+  2. Query'i yazma
+  3. Query'i execute etme
+  
+  Aşağıdaki örnekte query işlemini görelim. Örnekte, data source oluşturuluyor, query yazılıyor ve foreach ifadesinde execute ediliyor 
+  ```csharp
+      class LINQQueryExpressions
+      {
+          static void Main()
+          {
+
+              // Specify the data source.
+              int[] scores = new int[] { 97, 92, 81, 60 };
+
+              // Define the query expression.
+              IEnumerable<int> scoreQuery =
+                  from score in scores
+                  where score > 80
+                  select score;
+
+              // Execute the query.
+              foreach (int i in scoreQuery)
+              {
+                  Console.Write(i + " ");
+              }            
+          }
+      }
+      // Output: 97 92 81
+  ```
+  
+  
