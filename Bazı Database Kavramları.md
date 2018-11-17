@@ -167,6 +167,8 @@
   
 * ## Entity Framework nedir ?
 
+    DB aktivitelerini otomatize etmek için [ORM](#ormobject-relational-mapping-nedir) tekniğiyle Microsoft tarafından geliştirilmiş bir framework'tür.
+    
     .NET 3.5 öncesi, developerlar, uygulama verilerini ilgili DB'ye kaydetmek veya getirmek için sıklıkla ADO.NET kodu yazarlardı.
     Bunun için database connection açılırdı, veriyi çekmek veya göndermek için DataSet oluşturulurdu. Ayrıca bu veriler DataSet'ten .NET object'lere ve tam tersi olmak üzere convert edilirdi. Bu hantal ve hataya eğilimli bir yöntemdi. Bunun üzerine, bütün bu DB bağlantılı aktiviteleri otomatize etmek için Microsoft cc. Entity Framework'u yarattı.
     
@@ -231,6 +233,9 @@
                 }
       }
     ```
+    [CodeFirst proje geliştirmek için örnek link](https://docs.microsoft.com/tr-tr/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
+    
+    [DatabaseFirst proje geliştirmek için örnek link](https://docs.microsoft.com/tr-tr/aspnet/mvc/overview/getting-started/database-first-development/setting-up-database)
     
 * ## Entity Relationship Model nedir ?
 
