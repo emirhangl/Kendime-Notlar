@@ -233,9 +233,11 @@
                 }
       }
     ```
-    [CodeFirst proje geliştirmek için örnek link](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
+    [CodeFirst proje geliştirmek için örnek Microsoft linki](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)
     
-    [DatabaseFirst proje geliştirmek için örnek link](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/database-first-development/setting-up-database)
+    [DatabaseFirst proje geliştirmek için örnek Microsoft linki](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/database-first-development/setting-up-database)
+    
+    [DatabaseFirst proje geliştirmek için bir başka güzel örnek link](https://www.c-sharpcorner.com/article/mvc-5-demo-project-with-entity-framework-db-first/)
     
 * ## Entity Relationship Model nedir ?
 
@@ -298,5 +300,7 @@
       }
       // Output: 97 92 81
   ```
+  
+  [**"Select new" clause'u ile ilgili anlatım**](https://www.dotnetperls.com/select-new)
   
   
